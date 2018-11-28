@@ -5,7 +5,6 @@ import cats.instances.option._
 import cats.kernel.CommutativeGroup
 import cats.kernel.laws.discipline.{CommutativeGroupTests, OrderTests}
 import org.scalacheck.Arbitrary._
-import org.scalacheck.{Arbitrary, Cogen, Gen}
 import org.specs2.{ScalaCheck, Specification}
 import org.typelevel.discipline.specs2.Discipline
 import squants.{Dimension, Quantity}
@@ -15,17 +14,6 @@ abstract class QuantitySpec[Q <: Quantity[Q]: Order:CommutativeGroup](implicit v
   $orderingLaws
   $groupLaws
   """
-
-  implicit val arbitraryQ: Arbitrary[Q] = Arbitrary {
-    val unitsOfDimension = dimension.units.toSeq
-    for {
-      unit <- Gen oneOf unitsOfDimension
-      value <- arbitrary[Double]
-    } yield unit(value)
-  }
-  implicit def cogenForQ: Cogen[Q] = Cogen { q =>
-    q.to(dimension.primaryUnit).toLong
-  }
 
   private def orderingLaws = checkAll(dimension.name, OrderTests[Q].order)
   private def groupLaws = checkAll(dimension.name, CommutativeGroupTests[Q].commutativeGroup)
