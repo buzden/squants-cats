@@ -1,0 +1,27 @@
+package squants.cats
+
+import squants.cats.commons.QuantitySpec
+import squants.cats.instances._
+import squants.cats.instances.electro._
+import squants.electro._
+
+class AreaElectricChargeDensitySpec extends QuantitySpec[AreaElectricChargeDensity]
+class CapacitanceSpec extends QuantitySpec[Capacitance]
+class ConductivitySpec extends QuantitySpec[Conductivity]
+class ElectricChargeSpec extends QuantitySpec[ElectricCharge]
+class ElectricChargeDensitySpec extends QuantitySpec[ElectricChargeDensity]
+class ElectricChargeMassRatioSpec extends QuantitySpec[ElectricChargeMassRatio]
+class ElectricCurrentSpec extends QuantitySpec[ElectricCurrent]
+class ElectricCurrentDensitySpec extends QuantitySpec[ElectricCurrentDensity]
+class ElectricFieldStrengthSpec extends QuantitySpec[ElectricFieldStrength]
+class ElectricPotentialSpec extends QuantitySpec[ElectricPotential]
+class ElectricalConductanceSpec extends QuantitySpec[ElectricalConductance]
+class ElectricalResistanceSpec extends QuantitySpec[ElectricalResistance]
+class InductanceSpec extends QuantitySpec[Inductance]
+class LinearElectricChargeDensitySpec extends QuantitySpec[LinearElectricChargeDensity]
+class MagneticFieldStrengthSpec extends QuantitySpec[MagneticFieldStrength]
+class MagneticFluxSpec extends QuantitySpec[MagneticFlux]
+class MagneticFluxDensitySpec extends QuantitySpec[MagneticFluxDensity]
+class PermeabilitySpec extends QuantitySpec[Permeability]
+class PermittivitySpec extends QuantitySpec[Permittivity]
+class ResistivitySpec extends QuantitySpec[Resistivity]
