@@ -23,7 +23,9 @@ abstract class QuantitySpec[Q <: Quantity[Q]: Order:CommutativeGroup](implicit v
       value <- arbitrary[Double]
     } yield unit(value)
   }
-  implicit val cogenForQ: Cogen[Q] = Cogen(q => q.value.toLong + q.unit.symbol.##)
+  implicit def cogenForQ: Cogen[Q] = Cogen { q =>
+    q.to(dimension.primaryUnit).toLong
+  }
 
   private def orderingLaws = checkAll(dimension.name, OrderTests[Q].order)
   private def groupLaws = checkAll(dimension.name, CommutativeGroupTests[Q].commutativeGroup)
