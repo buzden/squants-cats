@@ -9,7 +9,7 @@ import org.specs2.{ScalaCheck, Specification}
 import org.typelevel.discipline.specs2.Discipline
 import squants.{Dimension, Quantity}
 
-abstract class QuantitySpec[Q <: Quantity[Q]: Order:CommutativeGroup](implicit val dimension: Dimension[Q])
+abstract class QuantitySpec[Q <: Quantity[Q]: Order:CommutativeGroup:Dimension]
     extends Specification with ScalaCheck with Discipline { def is = s2"""
   $orderingLaws
   $groupLaws
